@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Federico Ambrosetti — La comunicación sirve para conectar</title>
+<meta name="description" content="Federico Ambrosetti. Subsecretario de Comunicación Digital del GCBA. Founding Partner de Central CTL. 30+ años construyendo marcas y comunidades." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #FAF8F4;
+    --bg-soft: #F2EFE8;
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A48;
+    --ink-mute: #8A8A85;
+    --line: #E4E0D6;
+    --accent: #B8420F;
+    --accent-soft: #D9612B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 24px 32px;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(250, 248, 244, 0.7);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  nav.scrolled { border-bottom-color: var(--line); }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 32px 100px;
+    position: relative;
+  }
+  .hero-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--ink-mute);
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 8.5vw, 112px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    margin-bottom: 40px;
+    color: var(--ink);
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .hero-tagline {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+    max-width: 640px;
+    line-height: 1.4;
+    margin-bottom: 56px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    max-width: 720px;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hero-meta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-mute);
+  }
+  .hero-meta-value {
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ---------- Sections ---------- */
+  section {
+    padding: 120px 32px;
+    position: relative;
+  }
+  .section-header {
+    margin-bottom: 80px;
+    max-width: 720px;
+  }
+  .section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* ---------- About ---------- */
+  .about {
+    background: var(--bg);
+  }
+  .about-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+  .about-text p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .about-text p:first-of-type {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 32px;
+  }
+  .about-text strong { color: var(--ink); font-weight: 500; }
+
+  .beliefs {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .belief {
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+  }
+  .belief:last-child { border-bottom: 1px solid var(--line); }
+  .belief-num {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .belief-text {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .belief-text em { font-style: italic; color: var(--accent); }
+
+  /* ---------- Experience ---------- */
+  .experience {
+    background: var(--bg-soft);
+  }
+  .timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 48px;
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    transition: padding 0.3s ease;
+  }
+  .timeline-item:last-child { border-bottom: 1px solid var(--line); }
+  .timeline-item:hover { padding-left: 16px; }
+  @media (max-width: 640px) {
+    .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+    .timeline-item:hover { padding-left: 0; }
+  }
+  .timeline-year {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+  .timeline-body h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .timeline-role {
+    font-size: 13px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .timeline-desc {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  .brands {
+    margin-top: 100px;
+    text-align: center;
+  }
+  .brands-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+    margin-bottom: 32px;
+  }
+  .brands-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .brand-tag {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* ---------- Quote block ---------- */
+  .quote-section {
+    padding: 140px 32px;
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .quote-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .quote-mark {
+    font-family: 'Fraunces', serif;
+    font-size: 80px;
+    color: var(--accent-soft);
+    line-height: 0.5;
+    margin-bottom: 24px;
+  }
+  .quote-text {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    line-height: 1.25;
+    font-style: italic;
+    letter-spacing: -0.015em;
+    margin-bottom: 32px;
+  }
+  .quote-text strong {
+    font-weight: 500;
+    color: var(--accent-soft);
+    font-style: normal;
+  }
+  .quote-author {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(250, 248, 244, 0.6);
+  }
+
+  /* ---------- Contact ---------- */
+  .contact {
+    background: var(--bg);
+    padding: 140px 32px 100px;
+  }
+  .contact-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .contact-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 32px;
+  }
+  .contact-title em { font-style: italic; color: var(--accent); }
+  .contact-sub {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin: 0 auto 56px;
+    line-height: 1.6;
+  }
+  .contact-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 36px;
+    background: var(--ink);
+    color: var(--bg);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 100px;
+    transition: all 0.25s ease;
+  }
+  .contact-cta:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(184, 66, 15, 0.25);
+  }
+  .contact-cta svg { transition: transform 0.25s ease; }
+  .contact-cta:hover svg { transform: translateX(4px); }
+
+  .contact-details {
+    margin-top: 72px;
+    padding-top: 48px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: center;
+  }
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  .contact-detail-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-mute);
+  }
+  .contact-detail-value {
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .contact-detail-value a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: border-color 0.2s;
+  }
+  .contact-detail-value a:hover { border-bottom-color: var(--accent); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 40px 32px;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+  @media (max-width: 640px) {
+    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Federico<span>.</span>Ambrosetti</div>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#experience">Trayectoria</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div class="hero-eyebrow">Federico Ambrosetti · Buenos Aires</div>
+    <h1>Comunicar es <em>conectar</em>.<br />Conectar es <em>construir</em>.</h1>
+    <p class="hero-tagline">Treinta años construyendo marcas, comunidades y vínculos en la frontera donde lo digital se encuentra con lo humano.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Rol actual</span>
+        <span class="hero-meta-value">Subsecretario de Comunicación Digital · GCBA</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Empresa</span>
+        <span class="hero-meta-value">Founding Partner · Central CTL</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Desde</span>
+        <span class="hero-meta-value">1998 — presente</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Sobre mí</div>
+      <h2 class="section-title">El que llegó <em>temprano</em> a una conversación que todavía no había empezado.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>La comunicación no sirve para vender. Sirve para conectar. Y cuando conecta de verdad, todo lo demás —el negocio, el impacto, la transformación— llega solo.</p>
+        <p>Soy <strong>Digital Transformation Specialist</strong>. Mi especialización está en la frontera donde se cruzan Smart Communications, Web3, Innovación Digital, Estrategia de Negocios, Innovación en Datos y Construcción de Comunidad.</p>
+        <p>A mis 50 años lidero la comunicación digital de una de las ciudades más importantes de América Latina, opero en tres países con proyectos comerciales propios, dirijo una empresa con casi dos décadas de historia, sigo al frente de una organización social fundada en 1998 y de un programa de rugby inclusivo que nació de la necesidad de mi hijo. Doy clases, escribo y soy padre de tres.</p>
+        <p>Soy padre de <strong>Federica, Manuel y Agustín</strong>. La familia es el núcleo desde donde se sostiene todo lo demás.</p>
+      </div>
+
+      <div class="beliefs reveal">
+        <div class="belief">
+          <div class="belief-num">01 — Lo que creo</div>
+          <div class="belief-text">La mejor estrategia es la que <em>anticipa el cambio</em>, no la que reacciona a él.</div>
+        </div>
+        <div class="belief">
+          <div class="belief-num">02 — Lo que creo</div>
+          <div class="belief-text">La tecnología es una <em>herramienta</em>, no un fin.</div>
+        </div>
+        <div class="belief">
+          <div class="belief-num">03 — Lo que creo</div>
+          <div class="belief-text">La coherencia es la única ventaja competitiva <em>sostenible</em>.</div>
+        </div>
+        <div class="belief">
+          <div class="belief-num">04 — Lo que creo</div>
+          <div class="belief-text">La inclusión no es una política; es una <em>decisión</em>.</div>
+        </div>
+        <div class="belief">
+          <div class="belief-num">05 — Lo que creo</div>
+          <div class="belief-text">Comunicación profesional y construcción de comunidad son la <em>misma cosa</em>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Trayectoria</div>
+      <h2 class="section-title">Tres décadas, <em>tres geografías</em>, un mismo criterio.</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-body">
+          <h3>Gobierno de la Ciudad de Buenos Aires</h3>
+          <div class="timeline-role">Subsecretario de Comunicación Digital</div>
+          <p class="timeline-desc">Liderazgo de la estrategia digital de una ciudad de 3 millones de habitantes: gobierno abierto, prevención de tecnoadicción infantil y construcción de vínculos uno a uno a escala de ciudad.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-body">
+          <h3>WasabiLand</h3>
+          <div class="timeline-role">Founding Partner · Austin, Texas</div>
+          <p class="timeline-desc">Proyecto digital en Estados Unidos. Tercera geografía, mismo criterio: detectar la oportunidad antes de que sea evidente.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2016</div>
+        <div class="timeline-body">
+          <h3>Firehouse Subs</h3>
+          <div class="timeline-role">Franchisee · Miami, Florida</div>
+          <p class="timeline-desc">Apuesta por el food retail en Estados Unidos. Construir comunidad también detrás de un mostrador.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2006</div>
+        <div class="timeline-body">
+          <h3>Central CTL</h3>
+          <div class="timeline-role">Founding Partner & Director General</div>
+          <p class="timeline-desc">Boutique de comunicación con operaciones en Argentina, Colombia, México, Brasil, Costa Rica, EE.UU. y España. La intuición original: creatividad, estrategia, tecnología y datos como dimensiones de una misma conversación.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2004</div>
+        <div class="timeline-body">
+          <h3>OutCome</h3>
+          <div class="timeline-role">Fundador</div>
+          <p class="timeline-desc">Vuelta a Argentina después de los años en España. Primer proyecto propio antes de Central CTL.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2000</div>
+        <div class="timeline-body">
+          <h3>Grupo Telefónica · España</h3>
+          <div class="timeline-role">Marketing y Publicidad · Adquira / Katalyx</div>
+          <p class="timeline-desc">Director de Marketing y Publicidad de Telefónica España. Máster en Dirección de Comunicación y Publicidad en CESMA Business School.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">1998</div>
+        <div class="timeline-body">
+          <h3>Hacer Crecer</h3>
+          <div class="timeline-role">Fundador · 25+ años activo</div>
+          <p class="timeline-desc">Espacio de reflexión para hombres y mujeres que buscan vivir con integridad sus vínculos familiares, afectivos y espirituales. Donde aprendí lo que después apliqué a las marcas.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">∞</div>
+        <div class="timeline-body">
+          <h3>SIC Rugby Inclusivo</h3>
+          <div class="timeline-role">Fundador · San Isidro Club</div>
+          <p class="timeline-desc">Programa de rugby para personas con discapacidad. Nació de la necesidad más íntima que puede tener un padre: que su hijo tenga un lugar donde ser él mismo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="brands reveal">
+      <div class="brands-label">Marcas con las que trabajé</div>
+      <div class="brands-list">
+        <span class="brand-tag">Mondelez</span>
+        <span class="brand-tag">Telefónica</span>
+        <span class="brand-tag">Audi</span>
+        <span class="brand-tag">Unilever</span>
+        <span class="brand-tag">Disney</span>
+        <span class="brand-tag">Bayer</span>
+        <span class="brand-tag">Mars</span>
+        <span class="brand-tag">Michelin</span>
+        <span class="brand-tag">DEKALB</span>
+        <span class="brand-tag">Banco Galicia</span>
+        <span class="brand-tag">Banco Patagonia</span>
+        <span class="brand-tag">Pan American Energy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="quote-inner reveal">
+    <div class="quote-mark">"</div>
+    <div class="quote-text">En comunicación, lo que realmente hace la diferencia no es lo que sabemos hoy, sino nuestra capacidad de <strong>adaptarnos</strong> y de <strong>conectar</strong> con otros.</div>
+    <div class="quote-author">Federico Ambrosetti</div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-inner">
+    <h2 class="contact-title reveal">¿Tenemos algo de qué <em>hablar</em>?</h2>
+    <p class="contact-sub reveal">Si creés que lo digital y lo humano no son opuestos sino dos dimensiones de la misma conversación, probablemente sí.</p>
+
+    <a href="mailto:fambrosetti@centralctl.com" class="contact-cta reveal">
+      Escribime
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+
+    <div class="contact-details reveal">
+      <div class="contact-detail">
+        <span class="contact-detail-label">Email</span>
+        <span class="contact-detail-value"><a href="mailto:fambrosetti@centralctl.com">fambrosetti@centralctl.com</a></span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Ubicación</span>
+        <span class="contact-detail-value">Buenos Aires · Miami · Austin</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Empresa</span>
+        <span class="contact-detail-value">Central CTL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Federico Ambrosetti</span>
+    <span>Buenos Aires, Argentina</span>
+  </div>
+</footer>
+
+<script>
+  // Navbar shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
